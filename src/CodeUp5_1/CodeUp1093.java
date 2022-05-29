@@ -1,31 +1,16 @@
 package CodeUp5_1;
 
-import java.io.*;
-import java.util.StringTokenizer;
-
+import java.util.Scanner;
 public class CodeUp1093 {
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        Scanner kb = new Scanner(System.in);
+        int[] a = new int[24];
+        int n = kb.nextInt();
 
-        int n = Integer.parseInt(br.readLine()); //10을 int로 변환해서 읽는 곳
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int num[] = new int[23];
-
-        while (st.hasMoreTokens()){
-            int temp = Integer.parseInt(st.nextToken());
-            num[temp-1]++;
-
+        for(int i=0; i<n; i++){
+            a[kb.nextInt()-1]++; //왜 n이라고 넣으면 다른값이 나올까?
         }
-        for(int i : num){
-            bw.write(i +" ");
-
-        }
-        bw.flush();
-        bw.close();
-        br.close();
-
-
-    }
+       for(int i=0; i<a.length-1; i++) System.out.print(a[i]+ "");
+    }//23개일 경우 23이 나오게 하고싶으면 a.length-1로 잡고 new int[24]하던가 a.length로 잡고 new int[23]로 잡아야 답이 나온다.
 }
